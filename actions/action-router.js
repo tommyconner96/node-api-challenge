@@ -66,6 +66,8 @@ router.put("/:actionId", (req, res) => {
                 res.status(200).json({
                     message: "Action updated sucessfully"
                 })
+            } else {
+                res.status(404).json({ message: "no project found by that ID" })
             }
         })
         .catch((error) => {
