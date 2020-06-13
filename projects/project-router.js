@@ -78,7 +78,7 @@ router.put("/:id", (req, res) => {
                     message: "Project updated sucessfully"
                 })
             } else {
-                res.status(404).json({message: "no project found by that ID"})
+                res.status(404).json({ message: "no project found by that ID" })
             }
         })
         .catch((error) => {
@@ -88,20 +88,20 @@ router.put("/:id", (req, res) => {
 //DELETE project
 router.delete("/:id", (req, res) => {
     db
-      .remove(req.params.id)
-      .then((proj) => {
-        if (proj > 0) {
-          res.status(200).json({
-            message: "Project has been deleted"
-          })
-        } else {
-            res.status(404).json({message: "no project found by that ID"})
-        }
-      })
-      .catch((error) => {
-        res.status(500).json({ error: "There was an error" })
-    })
-  })
+        .remove(req.params.id)
+        .then((proj) => {
+            if (proj > 0) {
+                res.status(200).json({
+                    message: "Project has been deleted"
+                })
+            } else {
+                res.status(404).json({ message: "no project found by that ID" })
+            }
+        })
+        .catch((error) => {
+            res.status(500).json({ error: "There was an error" })
+        })
+})
 
 
 module.exports = router
